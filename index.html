@@ -15,9 +15,19 @@
             <a href="#"><img class="logo-img" src="https://csite.nicepage.com/Images/logo-w.png" alt="logo"></a>
             <a href="#"><img class="close-img" alt="Close" src="https://csite.nicepage.com/Images/Site/icon-close.png"></a>
         </div>
-    <section class="section-1">
+        <nav class="sidebar" id="sidebar">
+            <a href="#" id="close-btn"><img class="close-img" alt="Close" src="https://csite.nicepage.com/Images/Site/icon-close.png"></a>
+            <ul>
+              <li class="home-btn-style"><a href="index.html" id="home-btn" class="home-btn">Home</a></li>
+            </ul>
+          </nav>
+        
+        <p id="transparent" style="display: none;">  </p>
+    <section id="section-1" class="section-1">
             <div><img src="	https://images03.nicepagecdn.com/c461c07a441a5d220e8feb1a/120d44b9caa45b1bba3ba103/min.png"></div>
             <div class="s1div2">
+                
+                <a href="#" id="menu-btn" class="menu-btn" ><img id="menu-btn-img" class="menu-btn-img" src="images/menu.png" alt="menu-button"></a>
                 <h1 class="s1h1">Home Repair
 Services</h1>
                 <p class="s1p1">Find amazing home repair services tailored for you. Handy connects you with amazing home repair professionals.</p>
@@ -149,4 +159,49 @@ Services</h1>
     </section>
      </div>
     </body>
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const menuBtnImg = document.getElementById('menu-btn-img');
+        const sidebar = document.getElementById('sidebar');
+        const closeBtn = document.getElementById('close-btn');
+        const body = document.querySelector('body');  
+        const transp = document.getElementById('transparent');   
+        const originalOverflow = body.style.overflow;   
+
+        menuBtn.addEventListener('click', ()=>{
+          menuBtnImg.style.backgroundColor="yellow";
+          sidebar.classList.toggle('active');
+          event.preventDefault();
+          transp.style.display="block";
+          body.style.overflow = 'hidden';        
+    });
+
+
+        closeBtn.addEventListener('click', ()=>{
+          sidebar.classList.toggle('active');
+          event.preventDefault();       
+          body.style.overflow = originalOverflow; 
+          transp.classList.add('hide');
+          menuBtnImg.style.backgroundColor="white";
+          setTimeout(() => {
+            transp.classList.remove('hide');         
+            transp.style.display="none";
+           }, 750);     
+    });
+
+
+    transp.addEventListener('click', ()=>{
+          sidebar.classList.toggle('active');
+          event.preventDefault();        
+          body.style.overflow = originalOverflow; 
+          transp.classList.add('hide');
+          menuBtnImg.style.backgroundColor="white";
+          setTimeout(() => {
+            transp.classList.remove('hide');
+            
+            transp.style.display="none";
+           }, 750);      
+    });
+
+    </script>
 </html>
